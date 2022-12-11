@@ -11,8 +11,19 @@
 <div class="col-12 col-md-12 col-lg-12">
     <div class="card">
         <div class="card-header">
-            <a class="btn btn-primary" href="/vendor/tambah_vendor" ><i class="fas fa-plus-circle"></i> Tambah Data Vendor</a>
+            <a class="btn btn-primary" href="{{ route('vendor.create') }}"><i class="fas fa-plus-circle"></i> Tambah
+                Data Vendor</a>
         </div>
+        @if ($message = Session::get('succes'))
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                {{ $message }}
+            </div>
+        </div>
+        @endif
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-striped table-md">
@@ -28,22 +39,31 @@
                         <th>Alamat</th>
                         <th>Action</th>
                     </tr>
+                    @foreach ($vend as $vendor)
                     <tr>
-                        <td>1</td>
-                        <td>ID Vendor</td>
-                        <td>Nama Vendor</td>
-                        <td>Direktur Vendor</td>
-                        <td>No Handphone</td>
-                        <td>Email</td>
-                        <td>Rating</td>
-                        <td>Tentang</td>
-                        <td>Alamat</td>
+                        <td>{{ $vendor->id }}</td>
+                        <td>{{ $vendor->id_vendor }}</td>
+                        <td>{{ $vendor->nama_vendor }}</td>
+                        <td>{{ $vendor->direktur_vendor }}</td>
+                        <td>{{ $vendor->no_hp }}</td>
+                        <td>{{ $vendor->email }}</td>
+                        <td>{{ $vendor->rating }}</td>
+                        <td>{{ $vendor->tentang }}</td>
+                        <td>{{ $vendor->alamat }}</td>
                         <td>
-                            <a href="http://" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <form action="{{ route('vendor.destroy',$vendor->id) }}" method="POST">
+                                <a href="{{ route('vendor.edit',$vendor->id) }}" class="btn btn-warning"><i
+                                    class="fas fa-pen-square"></i></a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
+                            </form>
                         </td>
-                        <td><a href="http://" class="btn btn-warning"><i class="fas fa-pen-square"></i></a></td>
                     </tr>
+                    @endforeach
                 </table>
+                {!! $vend->links() !!}
             </div>
         </div>
         <div class="card-footer text-right">

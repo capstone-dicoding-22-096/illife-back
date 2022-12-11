@@ -109,7 +109,7 @@
               <div class="dropdown-list-content dropdown-list-message">
                 <a href="#" class="dropdown-item dropdown-item-unread">
                   <div class="dropdown-item-avatar">
-                    <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle">
+                    <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle">
                     <div class="is-online"></div>
                   </div>
                   <div class="dropdown-item-desc">
@@ -225,7 +225,7 @@
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Admin</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
@@ -255,8 +255,8 @@
             <a href="index.html">LF</a>
           </div>
           <ul class="sidebar-menu">
-            <li class=active><a class="nav-link" href="/"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-            <li><a class="nav-link" href="/vendor"><i class="fas fa-users"></i> <span>Data Vendor</span></a></li>
+            <li class="{{ Request::is('/')? "active":"" }}""><a class="nav-link" href="/"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+            <li class="{{ Request::is('vendor')? "active":"" }}"><a class="nav-link" href="/vendor"><i class="fas fa-users"></i> <span>Data Vendor</span></a></li>
             <li><a class="nav-link" href="/customer"><i class="far fa-user"></i> <span>Data Customer</span></a></li>
             <li><a class="nav-link" href="/portfolio"><i class="fas fa-history"></i> <span>Data Portfolio</span></a></li>
             <li><a class="nav-link" href="/testimoni"><i class="fas fa-comments"></i> <span>Data Testimoni</span></a></li>
