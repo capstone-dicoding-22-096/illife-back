@@ -95,7 +95,7 @@ class VendorController extends Controller
         ]);
 
         $vendor->update($request->all());
-        return redirect()->route('vendor.index')->with('succes','Data Vendor Berhasil di Update');
+        return redirect()->route('vendor.index')->with('succes','Data Vendor Telah Berhasil di Update');
     }
 
     /**
