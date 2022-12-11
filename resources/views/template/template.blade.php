@@ -257,10 +257,10 @@
           <ul class="sidebar-menu">
             <li class="{{ Request::is('/')? "active":"" }}""><a class="nav-link" href="/"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
             <li class="{{ Request::is('vendor')? "active":"" }}"><a class="nav-link" href="/vendor"><i class="fas fa-users"></i> <span>Data Vendor</span></a></li>
-            <li><a class="nav-link" href="/customer"><i class="far fa-user"></i> <span>Data Customer</span></a></li>
-            <li><a class="nav-link" href="/portfolio"><i class="fas fa-history"></i> <span>Data Portfolio</span></a></li>
-            <li><a class="nav-link" href="/testimoni"><i class="fas fa-comments"></i> <span>Data Testimoni</span></a></li>
-            <li><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span></a></li>
+            <li class="{{ Request::is('customer')? "active":"" }}"><a class="nav-link" href="/customer"><i class="far fa-user"></i> <span>Data Customer</span></a></li>
+            <li class="{{ Request::is('portfolio')? "active":"" }}"><a class="nav-link" href="/portfolio"><i class="fas fa-history"></i> <span>Data Portfolio</span></a></li>
+            <li class="{{ Request::is('testimoni')? "active":"" }}"><a class="nav-link" href="/testimoni"><i class="fas fa-comments"></i> <span>Data Testimoni</span></a></li>
+            <li class="{{ Request::is('logout')? "active":"" }}"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span></a></li>
           </ul>
         </aside>
       </div>

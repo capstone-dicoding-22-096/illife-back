@@ -5,7 +5,7 @@
 <div class="section-header-breadcrumb">
     <div class="breadcrumb-item"><a href="/">Dashboard</a></div>
     <div class="breadcrumb-item active"><a href="/vendor">Vendor</a></div>
-    <div class="breadcrumb-item active"><a href="/vendor/tambah_vendor">Tambah Data Vendor</a></div>
+    <div class="breadcrumb-item active"><a href="/vendor/create">Tambah Data Vendor</a></div>
 </div>
 @endsection
 @section('section-body')
@@ -57,7 +57,7 @@
                     <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="10"></textarea>
                 </div>
                 <div class="card-footer text-right">
-                    <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                    <button class="btn btn-primary mr-1" type="submit">Simpan</button>
                     <button class="btn btn-secondary" type="reset">Reset</button>
                 </div>
             </form>

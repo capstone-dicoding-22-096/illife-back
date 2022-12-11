@@ -1,18 +1,18 @@
 @extends('template.template')
-@section('title', 'Vendor')
+@section('title', 'Customer')
 @section('section-header')
-<h1>Data Vendor</h1>
+<h1>Data Customer</h1>
 <div class="section-header-breadcrumb">
     <div class="breadcrumb-item"><a href="/">Dashboard</a></div>
-    <div class="breadcrumb-item active"><a href="/vendor">Vendor</a></div>
+    <div class="breadcrumb-item active"><a href="/customer">Customer</a></div>
 </div>
 @endsection
 @section('section-body')
 <div class="col-12 col-md-12 col-lg-12">
     <div class="card">
         <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('vendor.create') }}"><i class="fas fa-plus-circle"></i> Tambah
-                Data Vendor</a>
+            <a class="btn btn-primary" href="{{ route('customer.create') }}"><i class="fas fa-plus-circle"></i> Tambah
+                Data Customer</a>
         </div>
         @if ($message = Session::get('succes'))
         <div class="alert alert-success alert-dismissible show fade">
@@ -29,26 +29,24 @@
                 <table class="table table-striped table-md">
                     <tr>
                         <th>No</th>
-                        <th>Nama Vendor</th>
-                        <th>Direktur Vendor</th>
+                        <th>NIK</th>
+                        <th>Nama Customer</th>
+                        <th>Jenis Kelamin</th>
                         <th>No. Handphone</th>
                         <th>Email</th>
-                        <th>Rating</th>
-                        <th>Alamat</th>
                         <th>Action</th>
                     </tr>
-                    @foreach ($vend as $vendor)
+                    @foreach ($cust as $customer)
                     <tr>
-                        <td>{{ $vendor->id }}</td>
-                        <td>{{ $vendor->nama_vendor }}</td>
-                        <td>{{ $vendor->direktur_vendor }}</td>
-                        <td>{{ $vendor->no_hp }}</td>
-                        <td>{{ $vendor->email }}</td>
-                        <td>{{ $vendor->rating }}</td>
-                        <td>{{ $vendor->alamat }}</td>
+                        <td>{{ $customer->id_customer }}</td>
+                        <td>{{ $customer->nik }}</td>
+                        <td>{{ $customer->nama_customer }}</td>
+                        <td>{{ $customer->jenis_kelamin }}</td>
+                        <td>{{ $customer->no_hp }}</td>
+                        <td>{{ $customer->email }}</td>
                         <td>
-                            <form action="{{ route('vendor.destroy',$vendor->id) }}" method="POST">
-                                <a href="{{ route('vendor.edit',$vendor->id) }}" class="btn btn-warning"><i
+                            <form action="{{ route('customer.destroy',$customer->id_customer) }}" method="POST">
+                                <a href="{{ route('customer.edit',$customer->id_customer) }}" class="btn btn-warning"><i
                                     class="fas fa-pen-square"></i></a>
                                 @csrf
                                 @method('DELETE')
@@ -59,7 +57,7 @@
                     </tr>
                     @endforeach
                 </table>
-                {!! $vend->links() !!}
+                {!! $cust->links() !!}
             </div>
         </div>
         <div class="card-footer text-right">
